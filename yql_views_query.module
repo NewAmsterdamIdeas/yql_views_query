@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * Integration with the views module to create the new PHP Array views display.
+ */
+
+/**
+ * Advertise the current views api version being used
+ */
+function yql_views_query_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'yql_views_query'),
+  );
+}

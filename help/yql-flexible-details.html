@@ -1,0 +1,23 @@
+Creating a view with the style YQL Query: Flexible works slightly different from ordinary views. The differences are described below.
+
+<ol>
+  <li>You create a view with "YQL Query: Flexible" as the type. (You didn't guess this one, right?)</li>
+  <li>The option <em>Query settings</em> is available (under <em>Advanced settings</em>. The following settings can be adjusted:
+    <ol>
+      <li><strong>Alternate API URL:</strong> This allows using another engine than the default YQL engine, assuming that it understand the YQL language. This field is usually blank.</li>
+      <li><strong>API method:</strong> For now only JSON method is supported. XML support is on the roadmap.</li>
+      <li><strong>YQL base table:</strong> This is the name of base table to query from. You can find the name at the <a href="https://developer.yahoo.com/yql/console/?q=show%20tables%3B&env=store://datatables.org/alltableswithkeys">YQL Console</a>. It usually has the form <em>anwers.search</em> or <em>twitter.followers</em>.</li>
+      <li><strong>Number of items:</strong> This sets the number of items that will be retrieved from the external table. Only the retrieved items are available for internal post-processing in Views, including splitting results with a pager. Note that all rows are fetched on each call to the table -- setting this to 1000 will cause a slow response even if you only show the first 10.</li>
+      <li><strong>Custom open tables:</strong> This setting is used if the table source is not Yahoo! (or whatever alternate API URL you may be using). In the <a href="https://developer.yahoo.com/yql/console/?q=show%20tables%3B&env=store://datatables.org/alltableswithkeys">YQL Console</a> this is indicated by the <em>src</em> attribute in the table description. Any custom open table should be specified in the following format:
+      <code>USE (table_url) AS (table_alias);</code> (Note the trailing semicolon.)</li>
+      <li><strong>YQL base object:</strong> The base object YQL will be querying from. If this is left empty, the first object in the result set will be taken as the base object</li>
+    </ol>
+  </li>
+  <li>There is a new and required setting when configuring fields: <strong>Field name.</strong> This is the name of the result field that should be outputted in the view. Consider it an equivalent of <em>field_cck_name</em>, but since all the data is kept externally the name must be entered manually. One way of browsing the available fields is <a href="https://developer.yahoo.com/yql/console/?q=show%20tables%3B&env=store://datatables.org/alltableswithkeys">YQL Console</a>, find your table in the lower right-hand box <em>Data tables</em> and click on it to browse the results of a sample query. (Note that some tables requires API keys to display any results at all.)</li>
+  </li>
+  <li>Managing <strong>filters</strong> works in analogue to adding fields. If the query should contain a part <em>where id='twittername'</em>, you enter 'id' as field name and 'twittername' as value. You may use operators and exposed filters as usual.</li>
+  </li>
+  <li>Managing <strong>arguments</strong> works very similar to filters. (As of September 18th 2010 argument handling is available in dev version.) The field name <em>must</em> be specified. The options for actions to take if no argument is present are not yet implemented. (Feel free to <a href="http://drupal.org/project/issues/yql_views_query?categories=All">join efforts to improve the module</a>!)</li>
+  </li>
+  <li>The <strong>sort criteria</strong> work similar to filters and arguments -- the field name on which to sort must be specified.</li>
+</ol>

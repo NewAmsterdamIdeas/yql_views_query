@@ -1,0 +1,40 @@
+<p>The following results can be built up inside the YQL Console:
+<img src="path:img/tutorial-yql-flexible-1.jpg"></img><br/><br/>
+This example shows how to build up the same query in a YQL Flexible view, with the following result:<br/>
+<img src="path:img/tutorial-yql-flexible-2.jpg"></img><br/>
+</p>
+
+<h3>View settings:</h3>
+<ul>
+  <li><strong>Query Settings</strong> (These decide which YQL table to query)
+    <ul>
+      <li>Alternate API URL: <em>default/leave empty</em> (No need to query outside the YQL base)</li>
+      <li>API method: JSON (For now the only supported method)</li>
+      <li>YQL base table: local.search (The table name is found in the YQL Console)</li>
+      <li>Number of items: 30 (Pick a number that covers your needs, but don't fetch the entire table)
+      <li>Custom open tables: <em>leave empty</em> (The table is Yahoo's own, so we need no custom open tables)</li>
+      <li>YQL base object: <em>leave empty</em> (It could also be set to 'Result' -- the object that contains the results)</li>
+    </ul>
+  </li>
+
+  <li><strong>Fields</strong> (The available field names can be seen in the YQL Console)
+    <ul>
+      <li>Field Name: Title</li>
+      <li>Field Name: Address</li>
+      <li>Field Name: Rating.AverageRating</li>
+    </ul>
+  </li>
+
+  <li><strong>Filter</strong> (Again, available fields for filtering can be seen in the YQL Console)
+    <ul>
+      <li>Field Name: query, Operator: is equal to, Value: sushi</li>
+      <li>Field Name: location, Operator: is equal to, Value: san fransisco, ca</li>
+    </ul>
+  </li>
+
+  <li><strong>Sort criteria</strong> (Again, available fields for filtering can be seen in the YQL Console)
+    <ul>
+      <li>Field Name: Rating.AverageRating, Sort descending (Used in the installed example view but not in the screenshot)gi</li>
+    </ul>
+  </li>
+</ul>

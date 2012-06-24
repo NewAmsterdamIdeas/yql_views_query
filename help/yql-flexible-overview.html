@@ -1,0 +1,12 @@
+<p>The view type <em>YQL Query: Flexible</em> allows for creating views that query data not from Drupal's own database, but from data tables available at <a href="https://developer.yahoo.com/yql/console/?q=show%20tables%3B&env=store://datatables.org/alltableswithkeys">the Yahoo! datatables.org project</a>. The project includes data from Google, Wikimedia, Yahoo!, Github, New York Times, Amazon, and many more providers.</p>
+
+<p>Some important concepts for using views of the type YQL Query: Flexible are
+<ul>
+<li>The name of the datatable you use as base, called the <em>YQL base table</em>.</li>
+<li>Any <em>custom open tables</em> that need to be called, if the table is not hosted by Yahoo! directly.</li>
+<li>To output any data, you must specify the names of the columns you wish to output. This is as ususal done as <em>fields</em>, but unlike usual views you enter the column name in free text.</li>
+<li>Any filters on the queries are added either as regular views filters (manual or exposed), or as arguments. In both cases you need to specify the name of the field to filter on manually.</li>
+<li>While most querying is done directly at the external database, some data handling is done locally -- such as paging. Thus, paging is only done on the <em>already received</em> rows and cannot go beyond the number of rows fetched from the external source.</li>
+</ul>
+
+To use YQL Query: Flexible you must yourself provide some data about the table against which you query. Using <a href="https://developer.yahoo.com/yql/console/?q=show%20tables%3B&env=store://datatables.org/alltableswithkeys">the YQL Console at Yahoo! Developer Network</a> is a great help in doing this.</p>
